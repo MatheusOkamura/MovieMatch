@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> <!-- Inclua o FontAwesome para a seta -->
+
+    <title>MovieMatch</title>
+</head>
+<body>
+    <header>
+        <h1 class="logo">MovieMatch</h1>
+        <div id="menu-icon">&#9776;</div>
+        <nav>
+            <ul>
+                <li><a href="#">Página Inicial</a></li>
+                <li><a href="#">Séries</a></li>
+                <li><a href="#">Filmes</a></li>
+                <li><a href="#">Animes</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div id="mobile-menu">
+        <a href="#">Página Inicial</a>
+        <a href="#">Sobre</a>
+        <a href="#">Serviços</a>
+        <a href="#">Contato</a>
+    </div>
+
+    <script>
+        const menuIcon = document.getElementById("menu-icon");
+        const mobileMenu = document.getElementById("mobile-menu");
+
+        menuIcon.addEventListener("click", () => {
+            mobileMenu.classList.toggle("active");
+        });
+    </script>
+
+    <h1 class="title-1">Animes</h1>
+    <p class="sub">Avalie os animes da atualidade e os clássicos!</p>
+    <div class="arrow-container">
+        <i class="fas fa-arrow-left arrow" id="prev-arrow"></i> 
+        <i class="fas fa-arrow-right arrow" id="next-arrow"></i> 
+    </div>
+    <div class="card-container" id="card-container-animes">
+        <div class="card">
+            <img src="elementos/spy.jpe" alt="Imagem do Card">
+            <div class="card-title">Spy × Family</div>
+            <a href="spy.html"> Avaliaçôes (5⭐)</a>
+        </div>
+        <div class="card">
+            <img src="elementos/attack.jpe" alt="Imagem do Card">
+            <div class="card-title">Attack on Titan</div>
+        </div>
+        <div class="card">
+            <img src="elementos/re.jpe" alt="Imagem do Card">
+            <div class="card-title">RE:ZERO</div>
+        </div>
+        <div class="card">
+            <img src="elementos/mahou.jpe" alt="Imagem do Card">
+            <div class="card-title">Mahou Tsukai No Yome</div>
+        </div>
+        <div class="card">
+            <img src="elementos/bleach.jpe" alt="Imagem do Card">
+            <div class="card-title">Bleach</div>
+        </div>
+        <div class="card">
+            <img src="elementos/fairy.jpe" alt="Imagem do Card">
+            <div class="card-title">Fairy Tail</div>
+        </div>
+        <div class="card">
+            <img src="elementos/toradora.jpe" alt="Imagem do Card">
+            <div class="card-title">Toradora</div>
+        </div>
+        <div class="card">
+            <img src="elementos/miss.jpe" alt="Imagem do Card">
+            <div class="card-title">Miss Kobayashi</div>
+        </div>
+    </div>
+    <h1 class="title-1">Séries</h1>
+    <p class="sub">Avalie as séries da atualidade e as clássicas!</p>
+    <div class="arrow-container">
+        <i class="fas fa-arrow-left arrow" id="prev-arrow-series"></i>
+        <i class="fas fa-arrow-right arrow" id="next-arrow-series"></i>
+    </div>
+    <div class="card-container" id="card-container-series">
+        <div class="card">
+            <img src="elementos/you.jpg" alt="Imagem do Card">
+            <div class="card-title">Spy × Family</div>
+        </div>
+        <div class="card">
+            <img src="elementos/boys.jpeg" alt="Imagem do Card">
+            <div class="card-title">Attack on Titan</div>
+        </div>
+        <div class="card">
+            <img src="elementos/walking.jpg" alt="Imagem do Card">
+            <div class="card-title">RE:ZERO</div>
+        </div>
+        <div class="card">
+            <img src="elementos/sabrina.jpg" alt="Imagem do Card">
+            <div class="card-title">Mahou Tsukai No Yome</div>
+        </div>
+        <div class="card">
+            <img src="elementos/things.jpg" alt="Imagem do Card">
+            <div class="card-title">Bleach</div>
+        </div>
+        <div class="card">
+            <img src="elementos/anne.jpg" alt="Imagem do Card">
+            <div class="card-title">Fairy Tail</div>
+        </div>
+        <div class="card">
+            <img src="elementos/break.jpg" alt="Imagem do Card">
+            <div class="card-title">Toradora</div>
+        </div>
+        <div class="card">
+            <img src="elementos/gambito.webp" alt="Imagem do Card">
+            <div class="card-title">Miss Kobayashi</div>
+        </div>
+    </div>
+    <script>
+      const cardContainer = document.querySelector(".card-container");
+        const prevArrow = document.getElementById("prev-arrow");
+        const nextArrow = document.getElementById("next-arrow");
+
+        let scrollPosition = 0;
+        const cardWidth = 320; 
+        const cardsPerPage = 3; 
+
+        prevArrow.addEventListener("click", () => {
+            scrollPosition -= cardWidth * cardsPerPage;
+            if (scrollPosition < 0) {
+                scrollPosition = 0;
+            }
+            cardContainer.scrollTo({
+                left: scrollPosition,
+                behavior: "smooth"
+            });
+        });
+
+        nextArrow.addEventListener("click", () => {
+            scrollPosition += cardWidth * cardsPerPage;
+            const maxScrollPosition = cardWidth * (cardContainer.children.length - cardsPerPage);
+            if (scrollPosition > maxScrollPosition) {
+                scrollPosition = maxScrollPosition;
+            }
+            cardContainer.scrollTo({
+                left: scrollPosition,
+                behavior: "smooth"
+            });
+        });
+    </script>
+    <script>
+        const cardContainerSeries = document.getElementById("card-container-series");
+        const prevArrowSeries = document.getElementById("prev-arrow-series");
+        const nextArrowSeries = document.getElementById("next-arrow-series");
+
+        let scrollPositionSeries = 0;
+        const cardWidthSeries = 320; 
+        const cardsPerPageSeries = 3;
+
+        prevArrowSeries.addEventListener("click", () => {
+        scrollPositionSeries -= cardWidthSeries * cardsPerPageSeries;
+            if (scrollPositionSeries < 0) {
+            scrollPositionSeries = 0;
+        }
+        cardContainerSeries.scrollTo({
+            left: scrollPositionSeries,
+            behavior: "smooth"
+    });
+});
+
+    nextArrowSeries.addEventListener("click", () => {
+        scrollPositionSeries += cardWidthSeries * cardsPerPageSeries;
+    const maxScrollPositionSeries = cardWidthSeries * (cardContainerSeries.children.length - cardsPerPageSeries);
+        if (scrollPositionSeries > maxScrollPositionSeries) {
+        scrollPositionSeries = maxScrollPositionSeries;
+    }
+    cardContainerSeries.scrollTo({
+    left: scrollPositionSeries,
+    behavior: "smooth"
+    });
+});
+    </script>
+</body>
+</html>
