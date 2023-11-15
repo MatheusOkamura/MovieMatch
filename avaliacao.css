@@ -9,7 +9,6 @@ body {
 header {
     background-color: #0d0f11;
     color: #fff;
-    padding: 10px 0;
 }
 .card-container {
     margin-left: 15px;
@@ -128,35 +127,94 @@ nav a {
     font-size: 1rem;
 }
 #menu-icon {
-    display: none;
-    cursor: pointer;
+  display: none;
+  cursor: pointer;
 }
 #mobile-menu {
-    display: none;
-    flex-direction: column;
-    background-color: #181818;
-    position: absolute;
-    top: 60px;
-    right: 10px;
-    z-index: 1;
+  display: none;
+  flex-direction: column;
+  background-color: #181818;
+  position: absolute;
+  top: 50px;
+  right: 20%;
+  z-index: 1;
 }
 #mobile-menu.active {
-    display: flex;
+  display: flex;
 }
 #mobile-menu a {
-    padding: 10px;
-    text-align: center;
-    color: #fff;
-    text-decoration: none;
+  margin-top: 10px;
+  padding: 40px;
+  text-align: center;
+  color: #fff;
+  text-decoration: none;
+  font-size: 200%;
 }
+
+@media (max-width: 768px) {
+
+  h1{
+      width: 100%;
+  }
+
+  p{
+      width: 100%;
+  }
+  
+  .card-image{
+    width: 40%;
+  }
+  
+}
+
+@media (min-width: 769px) and (max-width: 1320px) {
+  .card-horizontal {
+      flex-direction: column; 
+  }
+
+  .card-image {
+      width: 100%; 
+  }
+
+  h1{
+      width: 100%;
+  }
+
+  p{
+      width: 100%;
+  }
+  
+}
+
 @media screen and (max-width: 768px) {
-    nav {
-        display: none;
-    }
-    #menu-icon {
-        display: block;
-    }
+
+  nav {
+      display: none;
+      width: 100%;
+  }
+  #menu-icon {
+      width: 100%;
+      display: block;
+  }
+
+  .searcharea{
+      display: none;
+  }
+
+  .logo{
+      width: 70%;
+  }
 }
+
+@media screen and (min-width: 769px) and (max-width: 1320px) {
+  nav {
+      display: none;
+  }
+  #menu-icon {
+      display: block;
+  }
+}
+
 
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
 *{
@@ -173,7 +231,7 @@ html,body{
   background: #000;
 }
 .container{
-  position: relative;
+  position: flex;
   width: 400px;
   background: #111;
   padding: 20px 30px;
@@ -226,19 +284,19 @@ input#rate-5:checked ~ label{
   text-shadow: 0 0 20px #952;
 }
 #rate-1:checked ~ form header:before{
-  content: "I just hate it ";
+  content: "Simplesmente horrível ";
 }
 #rate-2:checked ~ form header:before{
-  content: "I don't like it ";
+  content: "Meio ruim ";
 }
 #rate-3:checked ~ form header:before{
-  content: "It is awesome ";
+  content: "Gostei  ";
 }
 #rate-4:checked ~ form header:before{
-  content: "I just like it ";
+  content: "Incrível ";
 }
 #rate-5:checked ~ form header:before{
-  content: "I just love it ";
+  content: "Melhor impossível ";
 }
 .container form{
   display: none;
@@ -294,4 +352,40 @@ form .btn button{
 }
 form .btn button:hover{
   background: #1b1b1b;
+}
+
+
+#comentarios-container {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+  background-color: rgb(255, 255, 255);
+}
+
+.comentario {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.comentario p {
+  margin: 0;
+}
+
+#post-comment {
+  background-color: rgb(219, 52, 75);
+  font-family: 'Roboto Slab', serif;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#post-comment:hover {
+  background-color: rgb(206, 49, 70);
+  
 }
